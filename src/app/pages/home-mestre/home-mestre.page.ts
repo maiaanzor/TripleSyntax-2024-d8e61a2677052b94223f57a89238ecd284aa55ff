@@ -23,7 +23,11 @@ export class HomeMestrePage implements OnInit {
 
   ngOnInit() {
     console.log(this.auth.UsuarioActivo);
-    
+    this.mesasSrv.desasignarCliente(1);
+
+    this.mesasSrv.desasignarCliente(2);
+
+    this.mesasSrv.desasignarCliente(3);
     //this.fire.BorrarCollection("lista-de-espera");
 
     this.pushService.getUser(); 

@@ -23,6 +23,8 @@ export class ReservaComponent implements OnInit {
   async pedirCitaA() {
 
     let clienteAux = this.auth.UsuarioActivo;
+    console.log("usuario act:", this.auth.UsuarioActivo);
+    
 
     if (clienteAux != null && this.horaSeleccionada) {
 
@@ -116,6 +118,7 @@ export class ReservaComponent implements OnInit {
     return fechasRestantes;
   }
   async ngOnInit(): Promise<void> {
+    console.log("usuario act:", this.auth.UsuarioActivo);
     this.diasTurnos = this.obtenerSiguientesSieteDias();
     this.firebase.traerSupervisores().subscribe((supervisores: any) => {
       this.tokenSupervisor = supervisores.filter((supervisor) => supervisor.token !== '').map((supervisor) => supervisor.token);

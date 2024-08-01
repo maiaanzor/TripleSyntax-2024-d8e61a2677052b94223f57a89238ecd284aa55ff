@@ -94,7 +94,7 @@ export class LoginPage implements OnInit {
     
             break;
     
-          case "cocinero":
+          case "cociero":
             this.router.navigate(["home-cocinero"])
     
             break;
@@ -102,17 +102,7 @@ export class LoginPage implements OnInit {
 
 
       } else if (this.authService.UsuarioActivo.perfil == 'cliente') {
-        if (this.authService.UsuarioActivo.aprobado) {
           this.router.navigate(['home-cliente']);
-        } else {
-          this.presentToast(
-            'Tu cuenta debe ser aprobada',
-            'warning',
-            'alert-circle-outline'
-          );
-          this.vibration.vibrate(1000);
-          this.authService.LogOut();
-        }
       } else if (
         this.authService.UsuarioActivo.perfil == 'supervisor' ||
         this.authService.UsuarioActivo.perfil == 'dueño'
